@@ -11,14 +11,6 @@ def wyslij_sowe(adresat, tresc_listu):
     return [True if randint(1,10) in range(1,10) else False]
 
 # Zadanie 5
-# W pliku main.py zaprogramuj funkcję waluta_dict_na_str, 
-# która przyjmie słownik informujący o wielkości funduszu 
-# po jego przeliczeniu na monety o największym nominale i przepisze na cenę.
-
-# jeśli wartość jakiegoś bilonu jest zerowa, pomiń ją,
-# wersja łatwiejsza: nie musisz odmieniać słów knutów, 
-# knuty, sykle, sykli, galeony itd. możesz zostać przy knut, sykl, galeon.
-
 def waluta_dict_na_str(wielkosc_funduszu):
     result = ""
     try:
