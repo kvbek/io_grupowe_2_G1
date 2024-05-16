@@ -25,12 +25,13 @@ slownik = {"galeon": lista_galeon, "sykl": lista_sykl, "knut": lista_knut }
 print(slownik)
 
 def licz_sume(dict):
-    galeon_out = sum(slownik.get("galeon")) #sum(slownik["galeon"] for item in slownik["galeon"])
-    sykl_out = sum(slownik.get("sykl")) #sum(slownik["sykl"] for item in slownik["sykl"])
-    knut_out = sum(slownik.get("knut")) #sum(slownik["knut"] for item in slownik["knut"])
+    galeon_out = sum(slownik.get("galeon")) 
+    sykl_out = sum(slownik.get("sykl"))/17 
+    knut_out = sum(slownik.get("knut"))/357 
     slownik_out = {"galeon": galeon_out,
                     "sykl": sykl_out,
                     "knut": knut_out}
+                    
     print(slownik_out)
 
 licz_sume(slownik)
