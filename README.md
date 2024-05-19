@@ -1,4 +1,5 @@
-# Dom Gryfindor 1
+# Dom <span style='color: red;'>Gryffindor 1</span>
+
 ![Logo](imgs/gryffindor_logo.png)
 
 ---
@@ -25,3 +26,5 @@
 2. `Zakaz omijania zajęć`
 
 3. `Zakaz egoistycznych paktyk`
+
+---
