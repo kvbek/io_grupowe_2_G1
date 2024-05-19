@@ -1,4 +1,4 @@
-# Dom <span style="font-style:italic;"><span style="background: linear-gradient(45deg, red, yellow); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gryfindor 1</span> </span>
+# $${\color{red}Gryffindor 1}$$
 
 ![Logo](imgs/gryffindor_logo.jpg)
 
