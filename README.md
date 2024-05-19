@@ -1,6 +1,6 @@
-# Dom <font color='red'>Gryffindor </font> 1
+# Dom <span style="font-style:italic;"><span style="background: linear-gradient(45deg, red, yellow); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gryfindor 1</span> </span>
 
-![Logo](imgs/gryffindor_logo.png)
+![Logo](imgs/gryffindor_logo.jpg)
 
 ---
 
@@ -25,6 +25,6 @@
 
 2. ~~Zakaz omijania zajęć~~
 
-3. ~~Zakaz egoistycznych paktyk~
+3. ~~Zakaz egoistycznych paktyk~~
 
 ---
