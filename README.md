@@ -1,4 +1,4 @@
-# Dom <span style='color: red;'>Gryffindor 1</span>
+# Dom <font color='red'>Gryffindor </font> 1
 
 ![Logo](imgs/gryffindor_logo.png)
 
@@ -21,10 +21,10 @@
 
 ### **Zakazane praktyki**
 
-1. `Zakaz testowania zaklęć na innych uczniach.`
+1. ~~Zakaz testowania zaklęć na innych uczniach.~~
 
-2. `Zakaz omijania zajęć`
+2. ~~Zakaz omijania zajęć~~
 
-3. `Zakaz egoistycznych paktyk`
+3. ~~Zakaz egoistycznych paktyk~
 
 ---
