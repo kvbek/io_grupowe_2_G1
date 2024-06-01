@@ -1,0 +1,10 @@
+# ignore ALL vsc specific files
+*.vscode
+
+
+# ignore ALL files in ANY directory named temp
+temp/
+
+#ignore all cache files
+*.pytest_cache
+__pycache__
