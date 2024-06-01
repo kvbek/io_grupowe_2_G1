@@ -52,3 +52,4 @@ def owls_report(file_path):
 # Przykład użycia funkcji
 file_path = 'input_sowy.csv'
 owls_report(file_path)
+#
