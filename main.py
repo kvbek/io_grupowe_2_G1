@@ -14,7 +14,7 @@ def wyslij_sowe(adresat, tresc_listu):
     sleep(1)
     return [True if randint(1,10) in range(1,10) else False]
 
-#Zadanie 3
+# Zadanie 3
 lista_galeon = []
 lista_sykl = []
 lista_knut = []
@@ -51,7 +51,7 @@ def licz_sume(dict):
 licz_sume(slownik)
 
 
-#Zadanie4
+# Zadanie 4
 
 def wybierz_sowe_zwroc_koszt(confirmation, dist, type_pack, spec):
     
@@ -109,7 +109,7 @@ def waluta_dict_na_str(wielkosc_funduszu):
     except ValueError:
         print("Podano niepoprawne wartości!")
 
-#Zadanie 6
+# Zadanie 6
 text =input("Podaj ilość i nazwę waluty: ")
 klucze = ["galeon", "sykl", "knut"]
 slownik = dict.fromkeys(klucze, 0)
@@ -131,8 +131,40 @@ def waluta_str_na_dict(wejscie):
 
 waluta_str_na_dict(text)
 
+# Zadanie 7
+import csv
 
-#zadanie8
+def wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna):
+   
+    return {"PLN": 15.0}
+
+def waluta_dict_na_str(koszt_dict):
+ 
+    return f"{koszt_dict['PLN']} PLN"
+
+def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
+
+    koszt_dict = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
+    koszt_str = waluta_dict_na_str(koszt_dict)
+    
+    potwierdzenie_str = "TAK" if potwierdzenie_odbioru else "NIE"
+    
+    row = [adresat, tresc_wiadomosci, koszt_str, potwierdzenie_str]
+    
+    with open('poczta_nadania_lista.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(row)
+
+nadaj_sowe(
+    adresat="Luna Lovegood",
+    tresc_wiadomosci="Wiadomość testowa",
+    potwierdzenie_odbioru=True,
+    odleglosc="lokalna",
+    typ="list",
+    specjalna="nie dotyczy"
+)
+
+# Zadanie 8
 def owl_sending(receiver, message):
     print(f'Sowa wyslana do: {adresat}')
     return random.random() < 0.9    # Symulacja: 90% szans na to, że sowa doleci
@@ -183,4 +215,3 @@ def owls_report(file_path):
 # Przykład użycia funkcji
 file_path = 'input_sowy.csv'
 owls_report(file_path)
-#
