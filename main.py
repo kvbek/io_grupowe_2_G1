@@ -132,7 +132,6 @@ def waluta_str_na_dict(wejscie):
 waluta_str_na_dict(text)
 
 # Zadanie 7
-import csv
 
 def wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna):
    
