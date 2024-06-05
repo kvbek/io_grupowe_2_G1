@@ -1,4 +1,4 @@
-from random
+import random
 from time import sleep
 import pandas as pd
 from collections import Counter
@@ -164,11 +164,15 @@ nadaj_sowe(
 )
 
 # Zadanie 8
-def owl_sending(receiver, message):
+
+
+def wyslij_sowe(receiver, message):
     print(f'Sowa wyslana do: {adresat}')
     return random.random() < 0.9    # Symulacja: 90% szans na to, że sowa doleci
 
-def owls_report(file_path):
+
+
+def poczta_wyslij_sowy(file_path):
     today = datetime.datetime.now()
     output_file = f"output_sowy_z_poczty_{today.day}_{today.month}_{today.year}.csv"
 
@@ -183,7 +187,7 @@ def owls_report(file_path):
         price = float(owl['koszt przesyłki'])
         deliv_conf = bool(owl['potwierdzenie odbioru'])
 
-        owl_delivered = owl_sending(receiver, message)
+        owl_delivered = wyslij_sowe(receiver, message)
 
         if owl_delivered:
             real_price = price
@@ -213,4 +217,4 @@ def owls_report(file_path):
 
 # Przykład użycia funkcji
 file_path = 'input_sowy.csv'
-owls_report(file_path)
+poczta_wyslij_sowy(file_path)
