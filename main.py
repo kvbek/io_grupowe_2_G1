@@ -6,10 +6,10 @@ import csv
 import datetime
 
 # Zadanie 2
-def wyslij_sowe(adresat, tresc_listu):
+def wyslij_sowe(adresat, tresc_wiadomosci):
     print(f'''
         Wysyłam sowę do: {adresat}\n
-        Treść: "{tresc_listu}"
+        Treść: "{tresc_wiadomosci}"
         ''')
     sleep(1)
     return [True if randint(1,10) in range(1,10) else False]
@@ -48,53 +48,57 @@ def licz_sume(dict):
                     
     print(slownik_out)
 
+
 licz_sume(slownik)
 
 
 # Zadanie 4
 
-def wybierz_sowe_zwroc_koszt(confirmation, dist, type_pack, spec):
+def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     
-    cost = {"galeon": 0, "sykl": 0, "knut": 0}
-    sowa = [confirmation, dist, type_pack, spec]
+    wielkosc_funduszu = {"galeon": 0, "sykl": 0, "knut": 0}
+    sowa = [potwierdzenie_odbioru, odleglosc, typ, specjalna]
 
     if sowa[0] == True:
-        cost["knut"] += 7
+        wielkosc_funduszu["knut"] += 7
     
     match sowa[1]:
         case "lokalna":
-            if type_pack == "list":
-                cost["knut"] += 2
-            elif type_pack == "paczka":
-                cost["knut"] += 7
+            if typ == "list":
+                wielkosc_funduszu["knut"] += 2
+            elif typ == "paczka":
+                wielkosc_funduszu["knut"] += 7
         case "krajowa":
-            if type_pack == "list":
-                cost["knut"] += 12
-            elif type_pack == "paczka":
-                cost["knut"] += 2
-                cost["sykl"] += 1
+            if typ == "list":
+                wielkosc_funduszu["knut"] += 12
+            elif typ == "paczka":
+                wielkosc_funduszu["knut"] += 2
+                wielkosc_funduszu["sykl"] += 1
         case "dalekobiezna":
-            if type_pack == "list":
-                cost["knut"] += 12
-            elif type_pack == "paczka":
-                cost["knut"] += 2
-                cost["sykl"] += 1
+            if typ == "list":
+                wielkosc_funduszu["knut"] += 12
+            elif typ == "paczka":
+                wielkosc_funduszu["knut"] += 2
+                wielkosc_funduszu["sykl"] += 1
 
     match sowa[3]:
         case "wyjec":
-            cost["knut"] += 4
+            wielkosc_funduszu["knut"] += 4
         case "list gonczy":
-            cost["sykl"] += 1
+            wielkosc_funduszu["sykl"] += 1
     
-    return cost
+    return wielkosc_funduszu
+
+'''
+TEST INPUT ZAD 4
+potwierdzenie_odbioru = True
+odleglosc = "lokalna"
+typ = "list"
+specjalna = None
 
 
-confirmation = True
-dist = "lokalna"
-type_pack = "list"
-spec = None
-
-print(wybierz_sowe_zwroc_koszt(confirmation, dist, type_pack, spec))
+print(wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna))
+'''
 
 # Zadanie 5
 def waluta_dict_na_str(wielkosc_funduszu):
@@ -112,26 +116,29 @@ def waluta_dict_na_str(wielkosc_funduszu):
 # Zadanie 6
 text =input("Podaj ilość i nazwę waluty: ")
 klucze = ["galeon", "sykl", "knut"]
-slownik = dict.fromkeys(klucze, 0)
-print(slownik)
+wielkosc_funduszu = dict.fromkeys(klucze, 0)
+print(wielkosc_funduszu)
 def waluta_str_na_dict(wejscie):
     string  =  wejscie.split()
     wartosci = []
     for index, wartosc in enumerate(string):
         if wartosc.startswith("g"):
-            slownik["galeon"] = string[index-1]
+            wielkosc_funduszu["galeon"] = string[index-1]
         elif wartosc.startswith("s"):
-            slownik["sykl"] = string[index-1]
+            wielkosc_funduszu["sykl"] = string[index-1]
         elif wartosc.startswith("k"):
-            slownik["knut"] = string[index-1]
+            wielkosc_funduszu["knut"] = string[index-1]
         else:
             wartosci.append(wartosc)
-    print(slownik)    
+    print(wielkosc_funduszu)    
 
 
 waluta_str_na_dict(text)
 
 # Zadanie 7
+
+'''
+TEST DEFs
 
 def wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna):
    
@@ -140,11 +147,12 @@ def wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna):
 def waluta_dict_na_str(koszt_dict):
  
     return f"{koszt_dict['PLN']} PLN"
+'''
 
 def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
 
-    koszt_dict = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
-    koszt_str = waluta_dict_na_str(koszt_dict)
+    wielkosc_funduszu = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
+    koszt_str = waluta_dict_na_str(wielkosc_funduszu)
     
     potwierdzenie_str = "TAK" if potwierdzenie_odbioru else "NIE"
     
@@ -154,6 +162,7 @@ def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ,
         writer = csv.writer(file)
         writer.writerow(row)
 
+'''
 nadaj_sowe(
     adresat="Luna Lovegood",
     tresc_wiadomosci="Wiadomość testowa",
@@ -162,15 +171,16 @@ nadaj_sowe(
     typ="list",
     specjalna="nie dotyczy"
 )
+'''
 
 # Zadanie 8
 
-
-def wyslij_sowe(receiver, message):
+'''
+def wyslij_sowe(adresat, tresc_wiadomosci):
     print(f'Sowa wyslana do: {adresat}')
     return random.random() < 0.9    # Symulacja: 90% szans na to, że sowa doleci
 
-
+'''
 
 def poczta_wyslij_sowy(file_path):
     today = datetime.datetime.now()
@@ -182,31 +192,31 @@ def poczta_wyslij_sowy(file_path):
 
     results_output = []
     for owl in owls:
-        receiver = owl['receiver']
-        message = owl['treść wiadomości']
-        price = float(owl['koszt przesyłki'])
-        deliv_conf = bool(owl['potwierdzenie odbioru'])
+        adresat = owl['adresat']
+        tresc_wiadomosci = owl['treść wiadomości']
+        wielkosc_funduszu = float(owl['koszt przesyłki'])
+        potwierdzenie_odbioru = bool(owl['potwierdzenie odbioru'])
 
-        owl_delivered = wyslij_sowe(receiver, message)
+        owl_delivered = wyslij_sowe(adresat, tresc_wiadomosci)
 
-        if owl_delivered:
-            real_price = price
+        if owl_delivered == True:
+            real_price = wielkosc_funduszu
         else:
-            if deliv_conf == 'TAK':
+            if potwierdzenie_odbioru == True:
                 real_price = 0.0
             else:
-                real_price = price
+                real_price = wielkosc_funduszu
 
         results_output.append({
-            'receiver': receiver,
-            'treść wiadomości': message,
-            'koszt przesyłki': price,
-            'potwierdzenie odbioru': deliv_conf,
+            'adresat': adresat,
+            'treść wiadomości': tresc_wiadomosci,
+            'koszt przesyłki': wielkosc_funduszu,
+            'potwierdzenie odbioru': potwierdzenie_odbioru,
             'rzeczywisty koszt': real_price
         })
 
     with open(output_file, mode='w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['receiver', 'treść wiadomości', 'koszt przesyłki', 'potwierdzenie odbioru', 'rzeczywisty koszt']
+        fieldnames = ['adresat', 'treść wiadomości', 'koszt przesyłki', 'potwierdzenie odbioru', 'rzeczywisty koszt']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
@@ -214,7 +224,8 @@ def poczta_wyslij_sowy(file_path):
             writer.writerow(result)
 
 
-
+'''
 # Przykład użycia funkcji
 file_path = 'input_sowy.csv'
 poczta_wyslij_sowy(file_path)
+'''
