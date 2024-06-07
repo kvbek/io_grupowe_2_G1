@@ -5,6 +5,7 @@ import re
 
 from main import wybierz_sowe_zwroc_koszt
 from main import licz_sume
+from main import wyslij_sowe
 
 class TestStringMethods(unittest.TestCase):
     #test zad4
@@ -37,6 +38,19 @@ class TestStringMethods(unittest.TestCase):
 	    "knut": 7}
 
     assert waluta_str_na_dict(wejscie) == slownik
+
+#zadanie 2
+
+    def test_wyslij_sowe():
+        adresat = "Albus Dumbledore"
+        tresc = "Proszę o spotkanie w biurze o 9:00."
+    
+        wynik = wyslij_sowe(adresat, tresc)
+    
+    assert isinstance(wynik, list) and len(wynik) == 1 and isinstance(wynik[0], bool), "Niepoprawny format wyniku"
+
+
+
 
 
 '''
