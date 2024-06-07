@@ -4,6 +4,7 @@ import math
 import re
 
 from main import wybierz_sowe_zwroc_koszt
+from main import licz_sume
 
 class TestStringMethods(unittest.TestCase):
     #test zad4
@@ -29,7 +30,12 @@ class TestStringMethods(unittest.TestCase):
 
         self.assertNotEqual(costs_result_expected, costs_result_real)
 
+wejscie = [15,"galeon", 7, "knut", 98, "sykl"]
+slownik = {"galeon": 15, 
+	    "sykl": 98,
+	    "knut": 7}
 
+assert waluta_str_na_dict(wejscie) == slownik
 
 
 '''
