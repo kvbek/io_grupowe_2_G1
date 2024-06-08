@@ -38,7 +38,7 @@ jobs:
         run: |
           python -m unittest discover -v -s ./ -p "*main_tests.py"
           
- jobNatalia:
+  jobNatalia:
     runs-on: ubuntu-latest
 
     steps:
