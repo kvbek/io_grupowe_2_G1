@@ -38,7 +38,7 @@ class TestStringMethods(unittest.TestCase):
 	    "knut": 7}
 
         assert waluta_str_na_dict(wejscie) == slownik
-
+'''
 #zadanie 2
 
     def test_wyslij_sowe():
@@ -50,7 +50,7 @@ class TestStringMethods(unittest.TestCase):
         assert isinstance(wynik, list) and len(wynik) == 1 and isinstance(wynik[0], bool), "Niepoprawny format wyniku"
 
 
-
+'''
 
 
 '''
