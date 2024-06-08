@@ -3,7 +3,7 @@ import sys
 import math
 import re
 
-from main import wybierz_sowe_zwroc_koszt
+from main import wybierz_sowe_zwroc_koszt, waluta_str_na_dict, wyslij_sowe
 from main import licz_sume
 from main import wyslij_sowe
 
@@ -37,7 +37,7 @@ class TestStringMethods(unittest.TestCase):
 	    "sykl": 98,
 	    "knut": 7}
 
-    assert waluta_str_na_dict(wejscie) == slownik
+        assert waluta_str_na_dict(wejscie) == slownik
 
 #zadanie 2
 
@@ -47,7 +47,7 @@ class TestStringMethods(unittest.TestCase):
     
         wynik = wyslij_sowe(adresat, tresc)
     
-    assert isinstance(wynik, list) and len(wynik) == 1 and isinstance(wynik[0], bool), "Niepoprawny format wyniku"
+        assert isinstance(wynik, list) and len(wynik) == 1 and isinstance(wynik[0], bool), "Niepoprawny format wyniku"
 
 
 
