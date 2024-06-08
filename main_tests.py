@@ -6,6 +6,7 @@ import re
 from main import wybierz_sowe_zwroc_koszt, waluta_str_na_dict, wyslij_sowe
 from main import licz_sume
 from main import wyslij_sowe
+from main import nadaj_sowe
 
 class TestStringMethods(unittest.TestCase):
     #test zad4
@@ -39,8 +40,14 @@ class TestStringMethods(unittest.TestCase):
 
         assert waluta_str_na_dict(wejscie) == slownik
 
-
-
+    def test_nadaj_sowe(self):
+        adresat = "Kuba"
+        tresc_wiadomosci =  "Hej, przesylam do ciebie sowę."
+        potwierdzenie_odbioru =  True
+        odleglosc = "lokalna"
+        typ = "list"
+        specjalna = "list gonczy"
+        assert nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna) == True
 
 
 

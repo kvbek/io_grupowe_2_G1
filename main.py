@@ -153,17 +153,20 @@ def waluta_dict_na_str(koszt_dict):
 '''
 
 def nadaj_sowe(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
-
-    wielkosc_funduszu = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
-    koszt_str = waluta_dict_na_str(wielkosc_funduszu)
-    
-    potwierdzenie_str = "TAK" if potwierdzenie_odbioru else "NIE"
-    
-    row = [adresat, tresc_wiadomosci, koszt_str, potwierdzenie_str]
-    
-    with open('poczta_nadania_lista.csv', mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(row)
+    try:   
+        wielkosc_funduszu = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
+        koszt_str = waluta_dict_na_str(wielkosc_funduszu)
+        
+        potwierdzenie_str = "TAK" if potwierdzenie_odbioru else "NIE"
+        
+        row = [adresat, tresc_wiadomosci, koszt_str, potwierdzenie_str]
+        
+        with open('poczta_nadania_lista.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(row)
+        return True
+    except:
+        return False
 
 '''
 nadaj_sowe(
