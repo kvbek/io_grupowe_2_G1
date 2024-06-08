@@ -31,17 +31,17 @@ class TestStringMethods(unittest.TestCase):
 
         self.assertNotEqual(costs_result_expected, costs_result_real)
 
-    def test_licz_sume():
+    def test_licz_sume(self):
         wejscie = [15,"galeon", 7, "knut", 98, "sykl"]
         slownik = {"galeon": 15, 
 	    "sykl": 98,
 	    "knut": 7}
 
         assert waluta_str_na_dict(wejscie) == slownik
-'''
+
 #zadanie 2
 
-    def test_wyslij_sowe():
+    def test_wyslij_sowe(self):
         adresat = "Albus Dumbledore"
         tresc = "Proszę o spotkanie w biurze o 9:00."
     
@@ -50,7 +50,7 @@ class TestStringMethods(unittest.TestCase):
         assert isinstance(wynik, list) and len(wynik) == 1 and isinstance(wynik[0], bool), "Niepoprawny format wyniku"
 
 
-'''
+
 
 
 '''
